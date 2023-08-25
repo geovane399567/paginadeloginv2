@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Página de Login</title>
+<style>
+  body {
+    font-family: "Times New Roman", serif;
+    background-color: #ffffcc;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+
+  .login-box {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 300px;
+  }
+
+  input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  button {
+    background-color: #ffcc00;
+    color: white;
+    border: none;
+    padding: 10px 20px
+border-radius: 5px;
+    cursor: pointer;
+  }
+
+  a {
+    color: #ffcc00;
+    text-decoration: none;
+  }
+</style>
+</head>
+<body>
+  <h1>Página de Login</h1>
+  <div class="login-box">
+    <input type="text" placeholder="Login">
+    <input type="password" placeholder="Senha">
+    <button>Login</button>
+    <p><a href="#">Esqueceu a senha</a></p>
+  </div>
+  <p id="date-time"></p>
+  <p id="location"></p>
+
+  <script>
+    const dateTimeElement = document.getElementById("date-time");
+    const locationElement = document.getElementById("location");
+
+    function updateDateTime() {
+      const now = new Date();
+      dateTimeElement.textContent = now.toLocaleString();
+
+      // To get location, you'll need to use a geolocation API
+      // For this example, we'll just show a placeholder
+      locationElement.textContent = "Localização: Exemplo";
+    }
+
+    updateDateTime();
+    setInterval(updateDateTime, 1000);
+  </script>
+</body>
+</html>
