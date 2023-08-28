@@ -59,9 +59,23 @@ border-radius: 5px;
   </div>
   <p id="date-time"></p>
   <p id="location"></p>
-<script async
-    src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
+
+  <script>
+  let map;
+
+async function initMap() {
+  //@ts-ignore
+  const { Map } = await google.maps.importLibrary("maps");
+
+  map = new Map(document.getElementById("map"), {
+    center: { lat: -34.397, lng: 150.644 },
+    zoom: 8,
+  });
+}
+
+initMap();
 </script>
+
   <script>
     const dateTimeElement = document.getElementById("date-time");
     const locationElement = document.getElementById("location");
@@ -72,7 +86,7 @@ border-radius: 5px;
 
       // To get location, you'll need to use a geolocation API
       // For this example, we'll just show a placeholder
-      locationElement.textContent = "Localização: Exemplo";
+      locationElement.textContent = "Localização: "+map;
     }
 
     updateDateTime();
